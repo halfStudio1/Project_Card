@@ -25,6 +25,5 @@ public class UIEditorConfig
         "Scr",
     };
 
-    public static string folderPath = Application.dataPath + "/Scripts/GameMain/UI/Panels/"; // 指定保存路径
-    public static string UITemplatePath = "Assets/Framework/Editor/UI/UITemplate.txt";
+    public static string folderPath = Application.dataPath + "/Scripts/UI/Panels/"; // 指定保存路径
 }

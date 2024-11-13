@@ -130,30 +130,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2614181704217627380, guid: 4df35b4be065e4b468e2a85b6700c973, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2673470003640123350, guid: 4df35b4be065e4b468e2a85b6700c973, type: 3}
-      propertyPath: m_ClearFlags
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2673470003640123350, guid: 4df35b4be065e4b468e2a85b6700c973, type: 3}
-      propertyPath: orthographic
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2673470003640123350, guid: 4df35b4be065e4b468e2a85b6700c973, type: 3}
-      propertyPath: m_BackGroundColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2673470003640123350, guid: 4df35b4be065e4b468e2a85b6700c973, type: 3}
-      propertyPath: m_BackGroundColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2673470003640123350, guid: 4df35b4be065e4b468e2a85b6700c973, type: 3}
-      propertyPath: m_BackGroundColor.r
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2945072645636214234, guid: 4df35b4be065e4b468e2a85b6700c973, type: 3}
       propertyPath: m_Name
       value: GameEntry

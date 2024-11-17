@@ -1,18 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Android.Types;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 
-public enum E_CradType 
-{
-    None = 0,
-    Attack = 1,
-    Defence = 2,
-    Resource = 3,
-    Buff = 4,
-    Heal = 5,
-    Num = 6,
-}
 public static class CardEffect
 {
     /// <summary>
@@ -22,43 +14,35 @@ public static class CardEffect
     /// <param name="target">攻击的目标</param>
     public static void DealDamage(float num,object target) 
     {
-        Debugger.LogYellow("造成伤害");
+        Debugger.LogYellow("造成伤害" + num + target.ToString());
     }
     /// <summary>
-    /// 特定卡牌相关
+    /// 可以获取到卡牌的相关操作
     /// </summary>
     /// <param name="card">需要进行操作的卡牌</param>
     /// <param name="target">卡牌需要放置的位置</param>
-    public static void GetCard(CardBase card,object target) 
+    public static void HandleCard(CardBase card,object target) 
     {
-        Debugger.LogYellow("获取卡牌");
+        Debugger.LogYellow("获取卡牌" + card.ToString() + target.ToString());
     }
     /// <summary>
-    /// 根据基础类型实现效果
+    /// 随机从一个容器中筛选任意数量到任意一个容器
     /// </summary>
-    /// <param name="cradType">卡牌类型</param>
-    /// <param name="num">数值</param>
-    /// <param name="card">卡牌</param>
-    /// <param name="target">卡牌作用目标/卡牌移动位置</param>
-    public static void BaseEffectReal(E_CradType cradType = E_CradType.None,float num = 0,CardBase card = null,object target = null) 
+    /// <param name="start">需要筛选卡牌的容器</param>
+    /// <param name="num">需要的数量</param>
+    /// <param name="end">需要存放的容器</param>
+    public static void RandomCard(object start, float num, object end) 
     {
-        switch (cradType) 
-        {
-            case E_CradType.Attack:
-                if (num != 0 && target != null)
-                    DealDamage(num,target);
-                break;
-            case E_CradType.Defence:
-                break;
-            case E_CradType.Resource:
-                break;
-            case E_CradType.Buff:
-                break;
-            case E_CradType.Heal:
-                break;
-            case E_CradType.Num:
-                break;
-
-        }
+        Debugger.LogYellow("随机获取卡牌" + start.ToString() + num.ToString() + end.ToString());
     }
+    /// <summary>
+    /// 修改value的值
+    /// </summary>
+    /// <param name="value">需要修改的值</param>
+    /// <param name="num">需要增加的值</param>
+    public static void ChangeValue(ref int value,int num) 
+    {
+        value += num;
+    }
+
 }

@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackCard : CardBase
+public class DefenceCard : CardBase
 {
     [Header("卡牌数值")]
-    public float attckNum;
-    [Header("作用目标")]
+    public float defenceNum;
+
     public object target;
 
     protected override void BaseEffect()

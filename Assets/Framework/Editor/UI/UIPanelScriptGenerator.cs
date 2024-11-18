@@ -96,7 +96,8 @@ public class UIPanelScriptGenerator : EditorWindow
         #endregion
 
         //读取UI模板
-        TextAsset baseStr = AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/Editor/UI/UITemplate.txt");
+        TextAsset baseStr = AssetDatabase.LoadAssetAtPath<TextAsset>("Assets/Framework/Editor/UI/UITemplate.txt");
+
         //将生成的字符串写到模板中
         panelScript = string.Format(baseStr.text,
                                      panel.name,

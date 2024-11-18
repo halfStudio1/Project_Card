@@ -13,7 +13,7 @@ public class LogEditor
         GameObject reportObj = GameObject.Find("Reporter");
         if (reportObj == null)
         {
-            reportObj = GameObject.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Scripts/Framework/Debug/Unity-Logs-Viewer/Reporter.prefab"));
+            reportObj = GameObject.Instantiate(AssetDatabase.LoadAssetAtPath<GameObject>("Assets/Framework/Res/LogSystem/Reporter.prefab"));
             reportObj.name = "Reporter";
             AssetDatabase.SaveAssets();
             EditorSceneManager.SaveScene(EditorSceneManager.GetActiveScene());

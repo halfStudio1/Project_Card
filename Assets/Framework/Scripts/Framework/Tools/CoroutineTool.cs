@@ -27,20 +27,20 @@ public static class CoroutineTool
     }
     public static IEnumerator WaitForSeconds(float time)
     {
-        float currTime = 0;
-        while (currTime < time)
+        float curTime = 0;
+        while (curTime < time)
         {
-            currTime += Time.deltaTime;
+            curTime += Time.deltaTime;
             yield return new WaitForFrameStruct();
         }
     }
 
     public static IEnumerator WaitForSecondsRealtime(float time)
     {
-        float currTime = 0;
-        while (currTime < time)
+        float curTime = 0;
+        while (curTime < time)
         {
-            currTime += Time.unscaledDeltaTime;
+            curTime += Time.unscaledDeltaTime;
             yield return new WaitForFrameStruct();
         }
     }

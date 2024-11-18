@@ -130,6 +130,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2633131834465940087, guid: 4df35b4be065e4b468e2a85b6700c973, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2945072645636214234, guid: 4df35b4be065e4b468e2a85b6700c973, type: 3}
       propertyPath: m_Name
       value: GameEntry

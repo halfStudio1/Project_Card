@@ -13,6 +13,7 @@ public class {0} : BasePanel
 
     public override void ShowMe()
     {{
+        gameObject.SetActive(true);
     }}
 
     public override void HideMe()

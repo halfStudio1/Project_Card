@@ -15,11 +15,15 @@ public class GameEntry : MonoBehaviour
 
     private void Start()
     {
-        if(startScene == E_ScenesType.GameEntry)
+        ConfigTableMgr.Instance.InitTable();
+        DatasMgr.Instance.LoadData();
+
+
+
+        if (startScene == E_ScenesType.GameEntry)
             return;
 
-        ConfigTableMgr.Instance.InitTable();
-
         ResMgr.Instance.LoadSceneAsync(startScene.ToString());
+
     }
 }

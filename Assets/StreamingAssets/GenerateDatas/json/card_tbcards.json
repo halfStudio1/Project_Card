@@ -1,0 +1,18 @@
+[
+  {
+    "id": 10001,
+    "name": "普通攻击",
+    "imgName": "Attack",
+    "info": "这是普通攻击",
+    "point": 1,
+    "cardType": 0
+  },
+  {
+    "id": 10002,
+    "name": "普通攻击2",
+    "imgName": "Attack2",
+    "info": "这是普通攻击2",
+    "point": 2,
+    "cardType": 0
+  }
+]

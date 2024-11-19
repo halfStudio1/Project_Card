@@ -13,26 +13,39 @@ using SimpleJSON;
 
 namespace cfg.test
 {
-public sealed partial class Test : Luban.BeanBase
+public sealed partial class Test123 : Luban.BeanBase
 {
-    public Test(JSONNode _buf) 
+    public Test123(JSONNode _buf) 
     {
         { if(!_buf["id"].IsNumber) { throw new SerializationException(); }  Id = _buf["id"]; }
         { if(!_buf["name"].IsString) { throw new SerializationException(); }  Name = _buf["name"]; }
+        { if(!_buf["desc"].IsString) { throw new SerializationException(); }  Desc = _buf["desc"]; }
+        { if(!_buf["count"].IsNumber) { throw new SerializationException(); }  Count = _buf["count"]; }
     }
 
-    public static Test DeserializeTest(JSONNode _buf)
+    public static Test123 DeserializeTest123(JSONNode _buf)
     {
-        return new test.Test(_buf);
+        return new test.Test123(_buf);
     }
 
     /// <summary>
     /// 编号
     /// </summary>
     public readonly int Id;
+    /// <summary>
+    /// 名称
+    /// </summary>
     public readonly string Name;
+    /// <summary>
+    /// 描述
+    /// </summary>
+    public readonly string Desc;
+    /// <summary>
+    /// 个数
+    /// </summary>
+    public readonly int Count;
    
-    public const int __ID__ = -1226327922;
+    public const int __ID__ = -543255836;
     public override int GetTypeId() => __ID__;
 
     public  void ResolveRef(Tables tables)
@@ -44,6 +57,8 @@ public sealed partial class Test : Luban.BeanBase
         return "{ "
         + "id:" + Id + ","
         + "name:" + Name + ","
+        + "desc:" + Desc + ","
+        + "count:" + Count + ","
         + "}";
     }
 }

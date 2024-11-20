@@ -14,19 +14,16 @@ namespace cfg
 {
 public partial class Tables
 {
-    public test.TbTest TbTest {get; }
     public card.TbCards TbCards {get; }
 
     public Tables(System.Func<string, JSONNode> loader)
     {
-        TbTest = new test.TbTest(loader("test_tbtest"));
         TbCards = new card.TbCards(loader("card_tbcards"));
         ResolveRef();
     }
     
     private void ResolveRef()
     {
-        TbTest.ResolveRef(this);
         TbCards.ResolveRef(this);
     }
 }

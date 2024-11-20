@@ -834,7 +834,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8030058802270189027}
   - component: {fileID: 8852513707293866595}
-  - component: {fileID: 1300762456243099798}
   m_Layer: 5
   m_Name: TestUIPanel
   m_TagString: Untagged
@@ -873,24 +872,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4528586356223894949}
   m_CullTransparentMesh: 1
---- !u!114 &1300762456243099798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4528586356223894949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1862a40af82e1fa42ac86a3d2c84b53f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Btn_1: {fileID: 8809372477417424190}
-  Btn_2: {fileID: 7069268272281978758}
-  Btn_3: {fileID: 7777919512022488036}
-  Sld_1: {fileID: 1342010397398952947}
-  Img_1: {fileID: 4173112800260525678}
-  Txt_1: {fileID: 4360472887527376833}
 --- !u!1 &5548385979733550194
 GameObject:
   m_ObjectHideFlags: 0

@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 154339857}
   - component: {fileID: 154339858}
   m_Layer: 0
-  m_Name: ProcedureController
+  m_Name: BattleController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -168,6 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stateMachine: {fileID: 154339858}
+  battlePanel: {fileID: 0}
 --- !u!114 &154339858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,7 +181,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0fd74198766060f4c8f299c73be4af30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 154339857}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

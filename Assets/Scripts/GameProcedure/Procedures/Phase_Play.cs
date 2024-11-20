@@ -10,18 +10,20 @@ public class Phase_Play : PhaseBase
         base.Enter();
 
         //xxxAction += EndRound();
+        controller.nextPhaseAction += EndPhase;
     }
     public override void Exit()
     {
         base.Exit();
 
         //xxxAction -= EndRound();
+        controller.nextPhaseAction -= EndPhase;
     }
 
 
 
     //结束出牌阶段
-    private void EndRound()
+    private void EndPhase()
     {
         stateMachine.SwitchState(typeof(Phase_Settle));
     }

@@ -15,5 +15,19 @@ public class Phase_Draw : PhaseBase
         //stateMachine.SwitchState(typeof(Procedure_Lose));
 
         //如果小于21，让玩家选择
+
+        controller.nextPhaseAction += EndDrawPhase;
+    }
+
+    public override void Exit()
+    {
+        base.Exit();
+
+        controller.nextPhaseAction -= EndDrawPhase;
+    }
+
+    private void EndDrawPhase()
+    {
+        stateMachine.SwitchState(typeof(Phase_Play));
     }
 }

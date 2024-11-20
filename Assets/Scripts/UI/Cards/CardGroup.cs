@@ -16,6 +16,14 @@ public class CardGroup : MonoBehaviour
         cards.Add(cardUI);
         Layout();
     }
+
+    public void LoseCard(CardUI cardUI)
+    {
+        cardUI.gameObject.SetActive(false);
+        cards.Remove(cardUI);
+        Layout();
+    }
+
     //布局
     public void Layout()
     {

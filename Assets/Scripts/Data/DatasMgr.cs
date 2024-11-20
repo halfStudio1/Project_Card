@@ -2,34 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
-public class BattleData
-{
-    
-
-
-}
-public class EnemyData
-{
-    public float health = 100f;
-
-    public HashSet<BuffBase> buffs = new HashSet<BuffBase>();
-
-}
+/// <summary>
+/// 玩家数据
+/// </summary>
 public class PlayerData
 {
-
     public int[] cardID;
-
-}
-public class BattlePlayerData
-{
-    //血量
-    public int health = 3;
-    //buff
-    public HashSet<BuffBase> buffs = new HashSet<BuffBase>();
-    //牌组
-    public HashSet<CardBase> cards = new HashSet<CardBase>();
 }
 
 public class DatasMgr : Singleton<DatasMgr>
@@ -41,7 +19,7 @@ public class DatasMgr : Singleton<DatasMgr>
     {
         playerData = JsonMgr.Instance.Load<PlayerData>("Player");
 
-        playerData.cardID = new int[] { 10001,10002 };
+        playerData.cardID = new int[] { 10001,10002,10003,10004,10005,10006 };
     }
 
     public void SaveData()

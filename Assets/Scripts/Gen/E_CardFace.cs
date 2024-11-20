@@ -11,12 +11,13 @@
 
 namespace cfg
 { 
-    public enum E_CardType
+    public enum E_CardFace
     {
-        Attack = 0,
-        Skill = 1,
-        Ability = 2,
-        Resource = 3,
+        LongSword = 0,
+        Knife = 1,
+        Mask = 2,
+        Scissors = 3,
+        Eye = 4,
     }
 
 } 

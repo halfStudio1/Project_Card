@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 3946066435115389324}
   - component: {fileID: 5198380935231264485}
   m_Layer: 5
-  m_Name: Btn_EndRound
+  m_Name: Btn_EndPhase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -995,6 +995,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Btn_DrawCard: {fileID: 1430308189270942988}
+  Btn_NextPhase: {fileID: 5198380935231264485}
   cardGroup: {fileID: 1657987968131899106}
 --- !u!1 &4621035024410440864
 GameObject:

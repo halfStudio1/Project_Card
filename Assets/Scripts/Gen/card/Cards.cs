@@ -21,8 +21,10 @@ public sealed partial class Cards : Luban.BeanBase
         { if(!_buf["name"].IsString) { throw new SerializationException(); }  Name = _buf["name"]; }
         { if(!_buf["imgName"].IsString) { throw new SerializationException(); }  ImgName = _buf["imgName"]; }
         { if(!_buf["info"].IsString) { throw new SerializationException(); }  Info = _buf["info"]; }
-        { if(!_buf["point"].IsNumber) { throw new SerializationException(); }  Point = _buf["point"]; }
         { if(!_buf["cardType"].IsNumber) { throw new SerializationException(); }  CardType = (E_CardType)_buf["cardType"].AsInt; }
+        { if(!_buf["cardFace"].IsNumber) { throw new SerializationException(); }  CardFace = (E_CardFace)_buf["cardFace"].AsInt; }
+        { if(!_buf["point"].IsNumber) { throw new SerializationException(); }  Point = _buf["point"]; }
+        { if(!_buf["value"].IsNumber) { throw new SerializationException(); }  Value = _buf["value"]; }
     }
 
     public static Cards DeserializeCards(JSONNode _buf)
@@ -47,13 +49,21 @@ public sealed partial class Cards : Luban.BeanBase
     /// </summary>
     public readonly string Info;
     /// <summary>
+    /// 卡类型
+    /// </summary>
+    public readonly E_CardType CardType;
+    /// <summary>
+    /// 卡面
+    /// </summary>
+    public readonly E_CardFace CardFace;
+    /// <summary>
     /// 点数
     /// </summary>
     public readonly int Point;
     /// <summary>
-    /// 卡类型
+    /// 数值
     /// </summary>
-    public readonly E_CardType CardType;
+    public readonly int Value;
    
     public const int __ID__ = -454634779;
     public override int GetTypeId() => __ID__;
@@ -69,8 +79,10 @@ public sealed partial class Cards : Luban.BeanBase
         + "name:" + Name + ","
         + "imgName:" + ImgName + ","
         + "info:" + Info + ","
-        + "point:" + Point + ","
         + "cardType:" + CardType + ","
+        + "cardFace:" + CardFace + ","
+        + "point:" + Point + ","
+        + "value:" + Value + ","
         + "}";
     }
 }

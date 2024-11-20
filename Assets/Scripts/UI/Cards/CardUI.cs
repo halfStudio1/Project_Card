@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CardUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler, IDragHandler
+public class CardUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler, IDragHandler, IBeginDragHandler, IEndDragHandler
 {
     public Card card;
 
@@ -13,8 +13,40 @@ public class CardUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
     public Text cardInfo;
     public Text point;
 
+    private RectTransform _rectTransform;
+    private Canvas _canvas;
+    private CardGroup _cardGroup;
+
+    private Vector2 _originPos;
+
+    private void Awake()
+    {
+        _rectTransform = GetComponent<RectTransform>();
+        _canvas = GetComponentInParent<Canvas>();
+        _originPos = _rectTransform.anchoredPosition;
+        _cardGroup = GetComponentInParent<CardGroup>();
+    }
+
+    public void OnBeginDrag(PointerEventData eventData)
+    {
+    }
+
+    public void OnEndDrag(PointerEventData eventData)
+    {
+        if ((_rectTransform.anchoredPosition.y - _originPos.y) > 200f)
+        {
+            Debugger.LogPink($"使用了{card.name}");
+            BattleController.Instance.UseCard(card);
+            _cardGroup.LoseCard(this);
+        }
+        else
+        {
+            _rectTransform.anchoredPosition = _originPos;
+        }
+    }
     public void OnDrag(PointerEventData eventData)
     {
+        _rectTransform.anchoredPosition += eventData.delta / _canvas.scaleFactor;
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -43,4 +75,6 @@ public class CardUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
         cardInfo.text = card.info;
         point.text = card.point.ToString();
     }
+
+
 }

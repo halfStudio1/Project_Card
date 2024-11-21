@@ -33,6 +33,12 @@ public class CardUI : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler,
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (BattleController.Instance.stateMachine.currentStateType != typeof(Phase_Play))
+        {
+            _rectTransform.anchoredPosition = _originPos;
+            return;
+        }
+
         if ((_rectTransform.anchoredPosition.y - _originPos.y) > 200f)
         {
             Debugger.LogPink($"使用了{card.name}");

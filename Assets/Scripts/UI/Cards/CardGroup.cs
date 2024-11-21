@@ -17,6 +17,10 @@ public class CardGroup : MonoBehaviour
         Layout();
     }
 
+    public void LoseCard(int id)
+    {
+        LoseCard(cards[id]);
+    }
     public void LoseCard(CardUI cardUI)
     {
         cardUI.gameObject.SetActive(false);

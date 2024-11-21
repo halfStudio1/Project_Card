@@ -10,5 +10,6 @@ public class Phase_Settle : PhaseBase
         base.Enter();
 
         //结算逻辑
+        controller.Settle();
     }
 }

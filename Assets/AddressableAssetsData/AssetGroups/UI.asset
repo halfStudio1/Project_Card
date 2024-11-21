@@ -17,6 +17,11 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: dd0e80327ed599f46851d1a32dbd8ec0
   m_SerializeEntries:
+  - m_GUID: 181cacbd593588e459471b0967443a7e
+    m_Address: FoldCardPanel
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 82797fd369a259a44ab2c2fe86785503
     m_Address: BattlePanel
     m_ReadOnly: 0

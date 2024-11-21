@@ -12,7 +12,19 @@ public class BattlePanel : BasePanel
     //结束摸牌、出牌
     public Button Btn_NextPhase;
 
+    public Text Txt_DamageText;
+
     public CardGroup cardGroup;
+
+    public override void HideMe()
+    {
+        gameObject.SetActive(false);
+    }
+
+    public override void ShowMe()
+    {
+        gameObject.SetActive(true);
+    }
     private void Awake()
     {
         Btn_DrawCard.onClick.AddListener(OnBtn_DrawCardClick);
@@ -36,13 +48,13 @@ public class BattlePanel : BasePanel
         cardGroup.DrawCard(cardUI);
     }
 
-    public override void HideMe()
+    public void ReadyDamage(int damage)
     {
-        gameObject.SetActive(false);
+        Txt_DamageText.text = damage.ToString();
     }
 
-    public override void ShowMe()
+    public void LoseCard(int id)
     {
-        gameObject.SetActive(true);
+        cardGroup.LoseCard(id);
     }
 }

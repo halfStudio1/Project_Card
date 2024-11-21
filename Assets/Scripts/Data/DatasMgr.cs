@@ -19,7 +19,7 @@ public class DatasMgr : Singleton<DatasMgr>
     {
         playerData = JsonMgr.Instance.Load<PlayerData>("Player");
 
-        playerData.cardID = new int[] { 10001,10002,10003,10004,10005,10006 };
+        playerData.cardID = new int[] { 10001,10001, 10002, 10002, 10003, 10003, 10004, 10004, 10004, 10008, 10008 };
     }
 
     public void SaveData()

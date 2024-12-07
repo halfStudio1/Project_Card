@@ -8,13 +8,14 @@ public class FoldCard : MonoBehaviour, IPointerClickHandler
 {
     public FoldCardPanel foldCardPanel;
 
+    public CardView cardView;
+
     public Image image;
     public Text cardName;
     public Text cardInfo;
     public Text point;
 
-    //表示手牌中第几号牌
-    public int id;
+    private Vector3 _originPos;
 
     private void Awake()
     {
@@ -22,18 +23,13 @@ public class FoldCard : MonoBehaviour, IPointerClickHandler
     }
 
     //卡片被加载时
-    public void OnLoad(int id ,Card cardData)
+    public void Init(CardView cardView)
     {
-        this.id = id;
-
-        ResMgr.Instance.LoadAssetAsync<Sprite>(cardData.spriteName, (sprite) =>
-        {
-            image.sprite = sprite;
-        });
-
-        cardName.text = cardData.name;
-        cardInfo.text = cardData.info;
-        point.text = cardData.point.ToString();
+        this.cardView = cardView;
+        image.sprite = cardView.image.sprite;
+        cardName.text = cardView.cardName.text;
+        cardInfo.text = cardView.cardInfo.text;
+        point.text = cardView.point.text;
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -44,12 +40,13 @@ public class FoldCard : MonoBehaviour, IPointerClickHandler
     //被选择
     public void OnSelect()
     {
-        Debugger.LogPink($"选择了卡片{cardName.text}");
+        Debugger.LogPink($"选择了卡片：{cardName.text}");
         foldCardPanel.SelectFold(this);
     }
     //被取消选择
     public void OnCancel()
     {
+        Debugger.LogPink($"取消选择了卡片：{cardName.text}");
         foldCardPanel.CancelFold(this);
     }
 }

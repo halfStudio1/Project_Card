@@ -179,6 +179,7 @@ public class AudioMgr : SingletonMono<AudioMgr>
 
     #endregion
 
+    private Coroutine _fadeCoroutine = null;
     /// <summary>
     /// 音量过渡
     /// </summary>
@@ -187,7 +188,29 @@ public class AudioMgr : SingletonMono<AudioMgr>
     /// <param name="duration">过渡时间</param>
     private void FadeVolume(AudioSource audioSource, float targerVolume, float duration, Action action = null)
     {
-        StartCoroutine(Fade(audioSource, audioSource.volume, targerVolume, duration, action));
+        if (_fadeCoroutine != null)
+            StopCoroutine(_fadeCoroutine);
+        _fadeCoroutine = StartCoroutine(Fade(audioSource, audioSource.volume, targerVolume, duration, action));
+    }
+
+    /// <summary>
+    /// 过渡音量
+    /// </summary>
+    private IEnumerator Fade(AudioSource audioSource, float from, float to, float duration, Action onFadeComplete)
+    {
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            float currentValue = Mathf.Lerp(from, to, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+
+            audioSource.volume = currentValue;
+            yield return null;
+        }
+        // 确保结束时设定为最终值
+        audioSource.volume = to;
+        onFadeComplete?.Invoke();
     }
 
     #region 背景音乐
@@ -315,23 +338,25 @@ public class AudioMgr : SingletonMono<AudioMgr>
 
     #endregion
 
-    /// <summary>
-    /// 过渡音量
-    /// </summary>
-    private IEnumerator Fade(AudioSource audioSource, float from, float to, float duration, Action onFadeComplete)
+    #region 3D声音
+
+    public AudioSource Play3DAudio(AudioClip clip, Transform parent)
     {
-        float elapsedTime = 0f;
-
-        while (elapsedTime < duration)
-        {
-            float currentValue = Mathf.Lerp(from, to, elapsedTime / duration);
-            elapsedTime += Time.deltaTime;
-
-            audioSource.volume = currentValue;
-            yield return null;
-        }
-        // 确保结束时设定为最终值
-        audioSource.volume = to;
-        onFadeComplete?.Invoke();
+        AudioSource audioSource = audioSourcePool.GetAudioSource();
+        audioSource.clip = clip;
+        audioSource.Play();
+        audioSource.transform.SetParent(parent);
+        return audioSource;
     }
+
+    /// <summary>
+    /// 回收AudioSource
+    /// </summary>
+    /// <param name="audioSource"></param>
+    public void Stop3DAudio(AudioSource audioSource)
+    {
+        audioSourcePool.PushAudioSource(audioSource);
+    }
+
+    #endregion
 }

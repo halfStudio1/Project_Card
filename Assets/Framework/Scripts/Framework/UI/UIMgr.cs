@@ -79,9 +79,9 @@ public class UIMgr : SingletonMono<UIMgr>
             }
             else//已经加载结束
             {
-                ////如果是失活状态 直接激活面板 就可以显示了
-                //if (!panelInfo.panel.gameObject.activeSelf)
-                //    panelInfo.panel.gameObject.SetActive(true);
+                //如果是失活状态 直接激活面板 就可以显示了
+                if (!panelInfo.panel.gameObject.activeSelf)
+                    panelInfo.panel.gameObject.SetActive(true);
 
                 //如果要显示面板 会执行一次面板的默认显示逻辑
                 panelInfo.panel.ShowMe();

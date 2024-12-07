@@ -1,0 +1,332 @@
+[
+  {
+    "id": 10001,
+    "name": "长剑",
+    "imgName": "Attack",
+    "info": "造成2点伤害",
+    "cardType": 0,
+    "cardFace": 0,
+    "point": 2,
+    "value": 2
+  },
+  {
+    "id": 10002,
+    "name": "长剑",
+    "imgName": "Attack",
+    "info": "造成5点伤害",
+    "cardType": 0,
+    "cardFace": 0,
+    "point": 3,
+    "value": 5
+  },
+  {
+    "id": 10003,
+    "name": "长剑",
+    "imgName": "Attack",
+    "info": "造成8点伤害",
+    "cardType": 0,
+    "cardFace": 0,
+    "point": 4,
+    "value": 8
+  },
+  {
+    "id": 10004,
+    "name": "小刀",
+    "imgName": "Attack",
+    "info": "施加3层流血",
+    "cardType": 1,
+    "cardFace": 1,
+    "point": 6,
+    "value": 3
+  },
+  {
+    "id": 10005,
+    "name": "小刀",
+    "imgName": "Attack",
+    "info": "施加6层流血",
+    "cardType": 1,
+    "cardFace": 1,
+    "point": 7,
+    "value": 6
+  },
+  {
+    "id": 10006,
+    "name": "小刀",
+    "imgName": "Attack",
+    "info": "施加9层流血",
+    "cardType": 1,
+    "cardFace": 1,
+    "point": 8,
+    "value": 9
+  },
+  {
+    "id": 10007,
+    "name": "面具",
+    "imgName": "Attack",
+    "info": "每当有诅咒加入牌库后，立即弃置1张",
+    "cardType": 2,
+    "cardFace": 2,
+    "point": 10,
+    "value": 1
+  },
+  {
+    "id": 10008,
+    "name": "剪刀",
+    "imgName": "Attack",
+    "info": "立即弃置至多1张手牌",
+    "cardType": 1,
+    "cardFace": 3,
+    "point": 4,
+    "value": 1
+  },
+  {
+    "id": 10009,
+    "name": "剪刀",
+    "imgName": "Attack",
+    "info": "立即弃置至多2张手牌",
+    "cardType": 1,
+    "cardFace": 3,
+    "point": 5,
+    "value": 2
+  },
+  {
+    "id": 10010,
+    "name": "剪刀",
+    "imgName": "Attack",
+    "info": "立即弃置至多3张手牌",
+    "cardType": 1,
+    "cardFace": 3,
+    "point": 6,
+    "value": 3
+  },
+  {
+    "id": 10011,
+    "name": "眼睛",
+    "imgName": "Attack",
+    "info": "查看牌库的3张牌，以任意顺序置于牌库顶",
+    "cardType": 1,
+    "cardFace": 4,
+    "point": 1,
+    "value": 3
+  },
+  {
+    "id": 10012,
+    "name": "长矛",
+    "imgName": "Attack",
+    "info": "将下1张卡牌造成的伤害转化为穿透伤害",
+    "cardType": 1,
+    "cardFace": 5,
+    "point": 5,
+    "value": 0
+  },
+  {
+    "id": 10013,
+    "name": "长矛",
+    "imgName": "Attack",
+    "info": "将下1张卡牌造成的伤害转化为穿透伤害，伤害+3",
+    "cardType": 1,
+    "cardFace": 5,
+    "point": 6,
+    "value": 3
+  },
+  {
+    "id": 10014,
+    "name": "长矛",
+    "imgName": "Attack",
+    "info": "将下1张卡牌造成的伤害转化为穿透伤害，伤害+5",
+    "cardType": 1,
+    "cardFace": 5,
+    "point": 7,
+    "value": 5
+  },
+  {
+    "id": 10015,
+    "name": "苹果",
+    "imgName": "Attack",
+    "info": "无效1次下回合敌方的行动",
+    "cardType": 1,
+    "cardFace": 6,
+    "point": 10,
+    "value": 1
+  },
+  {
+    "id": 10016,
+    "name": "狼牙棒",
+    "imgName": "Attack",
+    "info": "施加5层创伤，消耗",
+    "cardType": 1,
+    "cardFace": 7,
+    "point": 9,
+    "value": 5
+  },
+  {
+    "id": 10017,
+    "name": "狼牙棒",
+    "imgName": "Attack",
+    "info": "施加7层创伤，消耗",
+    "cardType": 1,
+    "cardFace": 7,
+    "point": 10,
+    "value": 7
+  },
+  {
+    "id": 10018,
+    "name": "卷轴",
+    "imgName": "Attack",
+    "info": "立即抽取1张牌",
+    "cardType": 1,
+    "cardFace": 8,
+    "point": 6,
+    "value": 1
+  },
+  {
+    "id": 10019,
+    "name": "卷轴",
+    "imgName": "Attack",
+    "info": "立即抽取2张牌",
+    "cardType": 1,
+    "cardFace": 8,
+    "point": 7,
+    "value": 2
+  },
+  {
+    "id": 10020,
+    "name": "酒杯",
+    "imgName": "Attack",
+    "info": "下回合获得3层护盾",
+    "cardType": 1,
+    "cardFace": 9,
+    "point": 8,
+    "value": 3
+  },
+  {
+    "id": 10021,
+    "name": "酒杯",
+    "imgName": "Attack",
+    "info": "下回合获得5层护盾",
+    "cardType": 1,
+    "cardFace": 9,
+    "point": 9,
+    "value": 5
+  },
+  {
+    "id": 10022,
+    "name": "酒杯",
+    "imgName": "Attack",
+    "info": "下回合获得7层护盾",
+    "cardType": 1,
+    "cardFace": 9,
+    "point": 10,
+    "value": 7
+  },
+  {
+    "id": 10023,
+    "name": "毒药",
+    "imgName": "Attack",
+    "info": "施加3层中毒",
+    "cardType": 1,
+    "cardFace": 10,
+    "point": 5,
+    "value": 3
+  },
+  {
+    "id": 10024,
+    "name": "毒药",
+    "imgName": "Attack",
+    "info": "施加4层中毒",
+    "cardType": 1,
+    "cardFace": 10,
+    "point": 6,
+    "value": 4
+  },
+  {
+    "id": 10025,
+    "name": "毒药",
+    "imgName": "Attack",
+    "info": "施加5层中毒",
+    "cardType": 1,
+    "cardFace": 10,
+    "point": 7,
+    "value": 5
+  },
+  {
+    "id": 10026,
+    "name": "钢笔",
+    "imgName": "Attack",
+    "info": "无法带入对局，合成后卡牌点数-1",
+    "cardType": 3,
+    "cardFace": 11,
+    "point": 0,
+    "value": -1
+  },
+  {
+    "id": 10027,
+    "name": "铆钉",
+    "imgName": "Attack",
+    "info": "造成1点伤害，重复3次",
+    "cardType": 0,
+    "cardFace": 12,
+    "point": 4,
+    "value": 1
+  },
+  {
+    "id": 10028,
+    "name": "铆钉",
+    "imgName": "Attack",
+    "info": "造成3点伤害，重复3次",
+    "cardType": 0,
+    "cardFace": 12,
+    "point": 5,
+    "value": 3
+  },
+  {
+    "id": 10029,
+    "name": "铆钉",
+    "imgName": "Attack",
+    "info": "造成5点伤害，重复3次",
+    "cardType": 0,
+    "cardFace": 12,
+    "point": 6,
+    "value": 5
+  },
+  {
+    "id": 10030,
+    "name": "空酒杯",
+    "imgName": "Attack",
+    "info": "无法打出，无法弃置，没有效果，回合结束消耗",
+    "cardType": 4,
+    "cardFace": 13,
+    "point": 5,
+    "value": 0
+  },
+  {
+    "id": 10031,
+    "name": "眩晕",
+    "imgName": "Attack",
+    "info": "打出该牌立即结束本回合，消耗",
+    "cardType": 4,
+    "cardFace": 14,
+    "point": 10,
+    "value": 0
+  },
+  {
+    "id": 10032,
+    "name": "小丑",
+    "imgName": "Attack",
+    "info": "无法打出，该牌右侧的手牌无法被打出，回合结束消耗",
+    "cardType": 4,
+    "cardFace": 15,
+    "point": 3,
+    "value": 0
+  },
+  {
+    "id": 10033,
+    "name": "恐吓",
+    "imgName": "Attack",
+    "info": "抽取后展示该牌，并选择一张手牌弃置，消耗",
+    "cardType": 4,
+    "cardFace": 16,
+    "point": 3,
+    "value": 0
+  }
+]

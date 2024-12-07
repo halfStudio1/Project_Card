@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1001,
+    "name": "流血",
+    "imgName": "",
+    "info": "受到攻击时扣除相应点数的血量，可叠加，触发效果后层数-1",
+    "buffType": 1001,
+    "priority": 1,
+    "maxStack": 20
+  },
+  {
+    "id": 1002,
+    "name": "穿透",
+    "imgName": "",
+    "info": "无视护盾，且必定命中",
+    "buffType": 1002,
+    "priority": 1,
+    "maxStack": 20
+  },
+  {
+    "id": 1003,
+    "name": "创伤",
+    "imgName": "",
+    "info": "每次行动扣除对应层数的血量，可叠加，每触发一次层数-1",
+    "buffType": 1003,
+    "priority": 1,
+    "maxStack": 20
+  }
+]

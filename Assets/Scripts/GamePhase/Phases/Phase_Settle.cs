@@ -11,5 +11,7 @@ public class Phase_Settle : PhaseBase
 
         //结算逻辑
         controller.Settle();
+
+        stateMachine.SwitchState(typeof(Phase_MonsterAction));
     }
 }

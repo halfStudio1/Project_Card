@@ -14,12 +14,12 @@ public class DatasMgr : Singleton<DatasMgr>
 {
     public PlayerData playerData;
 
-
     public void LoadData()
     {
         playerData = JsonMgr.Instance.Load<PlayerData>("Player");
 
-        playerData.cardID = new int[] { 10001,10001, 10002, 10002, 10003, 10003, 10004, 10004, 10004, 10008, 10008 };
+        playerData.cardID = new int[] { 10001, 10001, 10002, 10002, 10003, 10003, 10004, 10004, 10004, 10008, 10008, 10012, 10012,
+                                        10018, 10018 };
     }
 
     public void SaveData()

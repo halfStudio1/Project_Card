@@ -1,17 +1,19 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine.Events;
 
-
-public partial class BattleController : SingletonMono<BattleController>
+public class BattleController : SingletonMono<BattleController>
 {
     //阶段状态机
     public PhaseStateMachine stateMachine;
     //战斗界面
     public BattlePanel battlePanel;
     //数据
-    public BattleData battleData;
-    private EnemyBattleData _enemyBattleData;
-    private PlayerBattleData _playerBattleData;
+    public EnemyObj enemyobj;
+    public PlayerObj playerobj;
+
+    //回合数
+    public int round = 0;
 
     //下一个阶段
     public UnityAction nextPhaseAction;
@@ -24,30 +26,20 @@ public partial class BattleController : SingletonMono<BattleController>
     /// <summary>
     /// 初始化数据
     /// </summary>
-    public void InitDeck()
+    public void InitData()
     {
-        battleData = new BattleData();
-        battleData.playerBattleData.InitDeck();
-
-        _enemyBattleData = battleData.enemyBattleData;
-        _playerBattleData = battleData.playerBattleData;
+        enemyobj = new EnemyObj();
+        playerobj = new PlayerObj();
+        playerobj.InitDeck();
     }
 
     /// <summary>
     /// 获取手牌
     /// </summary>
     /// <returns></returns>
-    public List<Card> GetHandCard()
+    public List<CardObj> GetHandCard()
     {
-        return _playerBattleData.handCards;
-    }
-
-    /// <summary>
-    /// 洗牌
-    /// </summary>
-    public void Shuffle()
-    {
-        _playerBattleData.Shuffle();
+        return playerobj.handCards;
     }
 
     /// <summary>
@@ -55,7 +47,7 @@ public partial class BattleController : SingletonMono<BattleController>
     /// </summary>
     public void DrawCard()
     {
-        _playerBattleData.DrawCard(battlePanel);
+        playerobj.DrawCard();
     }
 
     /// <summary>
@@ -70,19 +62,29 @@ public partial class BattleController : SingletonMono<BattleController>
     /// 失去一张牌
     /// </summary>
     /// <param name="card"></param>
-    public void LoseCard(Card card)
+    public void LoseCard(CardObj card)
     {
-        _playerBattleData.LoseCard(card);
+        playerobj.LoseCard(card);
+    }
+
+    /// <summary>
+    /// 主动弃牌
+    /// </summary>
+    public void ActivelyFold(int num)
+    {
+        UIMgr.Instance.ShowPanel<FoldCardPanel>(E_CanvasType.Top, (panel) =>
+        {
+            panel.Init(battlePanel, num);
+        });
     }
 
     /// <summary>
     /// 丢弃手牌
     /// </summary>
-    /// <param name="id">手牌中第几号位置</param>
-    public void FoldCard(int id)
+    public void FoldCard(CardView cardView)
     {
-        _playerBattleData.LoseCard(_playerBattleData.handCards[id]);
-        battlePanel.LoseCard(id);
+        battlePanel.LoseCard(cardView);
+        playerobj.LoseCard(cardView.cardObj);
     }
 
     /// <summary>
@@ -90,8 +92,32 @@ public partial class BattleController : SingletonMono<BattleController>
     /// </summary>
     public void Settle()
     {
-        battleData.Settle();
+        enemyobj.Settle();
+        playerobj.Settle();
+    }
+
+    /// <summary>
+    /// 使用卡牌
+    /// </summary>
+    /// <param name="card"></param>
+    public void UseCard(CardView cardView, EnemyView target)
+    {
+        if (CardMgr.Instance.UseCard(cardView.cardObj, playerobj, target.enemyObj))
+        {
+            battlePanel.LoseCard(cardView);
+        }
     }
 
 
+    #region 怪物
+
+    /// <summary>
+    /// 怪物行动
+    /// </summary>
+    public void MonsterAction()
+    {
+        enemyobj.MonsterAction();
+    }
+
+    #endregion
 }

@@ -17,8 +17,6 @@ public class FoldCardPanel : BasePanel
     //需要丢弃的数量
     private int _needFoldNum;
 
-    private UnityAction _onCompelete;
-
     public override void HideMe()
     {
         gameObject.SetActive(false);
@@ -42,49 +40,55 @@ public class FoldCardPanel : BasePanel
 
         foreach (FoldCard foldCard in foldCardSelectList)
         {
-            BattleController.Instance.FoldCard(foldCard.id);
+            BattleController.Instance.FoldCard(foldCard.cardView);
         }
 
         foldCardSelectList.Clear();
-        _onCompelete?.Invoke();
-        _onCompelete = null;
+        RemoveAllChildren(foldCardGroup);
         UIMgr.Instance.HidePanel<FoldCardPanel>();
     }
-
-    //传入手牌然后创建出来，传入需要丢弃的牌的数量，传入UI结束过后执行的
-    public void Init(List<Card> handCards, int needFoldNum, UnityAction onCompelete)
+    public void RemoveAllChildren(Transform parent)
     {
-        //如果没有手牌了
-        if (handCards.Count <= 0)
+        Transform transform;
+        for (int i = 0; i < parent.childCount; i++)
+        {
+            transform = parent.GetChild(i);
+            GameObject.Destroy(transform.gameObject);
+        }
+    }
+
+
+    public void Init(BattlePanel battlePanel, int needFoldNum)
+    {
+        int handCardsNum = battlePanel.cardGroup.cards.Count;
+        if (handCardsNum <= 0)
         {
             Debugger.LogPink("没有手牌，不用弃置");
-            onCompelete?.Invoke();
             UIMgr.Instance.HidePanel<FoldCardPanel>();
             return;
         }
 
         //如果手牌数量小于应该弃置的牌数量
-        if (handCards.Count < needFoldNum)
+        if (handCardsNum < needFoldNum)
         {
-            needFoldNum = handCards.Count;
+            needFoldNum = handCardsNum;
         }
 
         _needFoldNum = needFoldNum;
-        _onCompelete = onCompelete;
 
-        for (int i = 0; i < handCards.Count; i++)
+        for (int i = 0; i < handCardsNum; i++)
         {
-            CreateCard(i, handCards[i]);
+            CreateCard(battlePanel.cardGroup.cards[i]);
         }
     }
 
     //创建卡牌到UI
-    private void CreateCard(int id, Card card)
+    private void CreateCard(CardView cardView)
     {
         ResMgr.Instance.LoadAssetAsync<GameObject>("FoldCard", (obj) =>
         {
             obj = Instantiate(obj, foldCardGroup);
-            obj.GetComponent<FoldCard>().OnLoad(id, card);
+            obj.GetComponent<FoldCard>().Init(cardView);
         });
     }
 

@@ -53,6 +53,5 @@ public class StateMachine : MonoBehaviour
     public void SwitchState(Type newStateType)
     {
         SwitchState(stateTable[newStateType]);
-        currentStateType = newStateType;
     }
 }

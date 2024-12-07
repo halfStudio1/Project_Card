@@ -1,20 +1,14 @@
 using UnityEngine;
 
-public enum E_FrameRateType
-{
-    Low = 30,
-    Middle = 60,
-    High = 90
-}
 public class SettingsMgr : Singleton<SettingsMgr>
 {
     /// <summary>
     /// 设置帧率
     /// </summary>
     /// <param name="frameRate"></param>
-    public void SetFrameRate(E_FrameRateType frameRate)
+    public void SetFrameRate(int frameRate)
     {
-        Application.targetFrameRate = (int)frameRate;
+        Application.targetFrameRate = frameRate;
     }
     public int GetFrameRate()
     {

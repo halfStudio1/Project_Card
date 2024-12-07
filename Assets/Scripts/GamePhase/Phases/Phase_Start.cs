@@ -10,19 +10,8 @@ public class Phase_Start : PhaseBase
     {
         base.Enter();
 
-        //初始化卡组
-        controller.InitDeck();
-        controller.Shuffle();
-        //加载战斗UI，加载完成后进入摸牌阶段
-        UIMgr.Instance.ShowPanel<BattlePanel>(E_CanvasType.Top, LoadComplete);
+        controller.round++;
 
-    }
-
-    private void LoadComplete(BattlePanel panel)
-    {
-        //进入到摸牌阶段
         stateMachine.SwitchState(typeof(Phase_Draw));
-        battlePanel = panel;
-        controller.battlePanel = panel;
     }
 }

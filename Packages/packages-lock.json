@@ -7,6 +7,13 @@
       "dependencies": {},
       "hash": "7dcd33fd67c7ffe73e88c741bf9ef89ee04aa521"
     },
+    "com.cysharp.unitask": {
+      "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "f9fd769be7c634610f2a61aa914a1a55f34740e1"
+    },
     "com.unity.2d.animation": {
       "version": "9.1.2",
       "depth": 1,
@@ -293,6 +300,13 @@
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.cn"
+    },
+    "com.wooshii.hierarchydecorator": {
+      "version": "https://github.com/WooshiiDev/HierarchyDecorator.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "2590c6a14a7230b8571383c379124c32d0712090"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",

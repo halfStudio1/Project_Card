@@ -9,14 +9,12 @@ public class Phase_Play : PhaseBase
     {
         base.Enter();
 
-        //xxxAction += EndRound();
         controller.nextPhaseAction += EndPhase;
     }
     public override void Exit()
     {
         base.Exit();
 
-        //xxxAction -= EndRound();
         controller.nextPhaseAction -= EndPhase;
     }
 

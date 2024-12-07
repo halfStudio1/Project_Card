@@ -5,23 +5,25 @@ using UnityEngine;
 
 public class CardGroup : MonoBehaviour
 {
+    public CardView cardViewPrefab;
+
     public float maxAngle = 20f; // 最大角度
     public float defaultInterval = 10f; // 默认间隔
 
-    public List<CardUI> cards;
+    public List<CardView> cards;
 
     //摸牌
-    public void DrawCard(CardUI cardUI)
+    public void DrawCard(CardObj cardObj)
     {
-        cards.Add(cardUI);
+        //实例化一个CardView，来显示牌面
+        CardView cardView = Instantiate(cardViewPrefab, transform);
+        cardView.Init(cardObj);
+        cards.Add(cardView);
+        //布局
         Layout();
     }
 
-    public void LoseCard(int id)
-    {
-        LoseCard(cards[id]);
-    }
-    public void LoseCard(CardUI cardUI)
+    public void LoseCard(CardView cardUI)
     {
         cardUI.gameObject.SetActive(false);
         cards.Remove(cardUI);

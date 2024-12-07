@@ -26,4 +26,5 @@ public class UIEditorConfig
     };
 
     public static string folderPath = Application.dataPath + "/Scripts/UI/Panels/"; // 指定保存路径
+    public static string UITemplatePath = "Assets/Framework/Editor/UI/UITemplate.txt";
 }

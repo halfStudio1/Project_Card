@@ -17,6 +17,7 @@ public class PhaseBase : StateBase
     {
         base.Enter();
 
+        stateMachine.currentStateType = this.GetType();
         Debugger.LogCyan("进入阶段" + this.ToString());
     }
 }

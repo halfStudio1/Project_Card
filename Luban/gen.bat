@@ -8,6 +8,6 @@ dotnet %LUBAN_DLL% ^
     -d json ^
     --conf %CONF_ROOT%\luban.conf ^
     -x outputCodeDir=%WORKSPACE%/Assets/Scripts/Gen ^
-    -x outputDataDir=%WORKSPACE%\Assets\StreamingAssets\GenerateDatas\json
+    -x outputDataDir=%WORKSPACE%\Assets\Res\ConfigTables\json
 
 pause

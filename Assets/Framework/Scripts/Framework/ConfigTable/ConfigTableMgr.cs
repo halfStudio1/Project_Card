@@ -1,3 +1,4 @@
+using cfg;
 using SimpleJSON;
 using System.Collections;
 using System.Collections.Generic;
@@ -6,18 +7,22 @@ using UnityEngine;
 
 public class ConfigTableMgr : Singleton<ConfigTableMgr>
 {
-    cfg.Tables tables;
+    private Tables _table;
     public void InitTable()
     {
-        string gameConfDir = Application.streamingAssetsPath + "/GenerateDatas/json";
+        //string gameConfDir = Application.streamingAssetsPath + "/GenerateDatas/json";
+        string gameConfDir = Application.dataPath + "/Res/ConfigTables/json";
 
-        tables = new cfg.Tables(file => JSON.Parse(File.ReadAllText($"{gameConfDir}/{file}.json")));
+        _table = new cfg.Tables(file => JSON.Parse(File.ReadAllText($"{gameConfDir}/{file}.json")));
 
-        Debugger.LogPink("table初始化成功");
     }
 
+    public Dictionary<int, cfg.buff.Buff> GetBuffDic()
+    {
+        return _table.TbBuff.DataMap;
+    }
     public Dictionary<int, cfg.card.Cards> GetCardDic()
     {
-        return tables.TbCards.DataMap;
+        return _table.TbCards.DataMap;
     }
 }

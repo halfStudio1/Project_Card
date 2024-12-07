@@ -12,8 +12,8 @@ public class DebugTool : MonoBehaviour
             openLog = true,
             openTime = true,
             showThreadID = true,
-            showColorName = false,
-            logSave = false,
+            showColorName = true,
+            logSave = true,
             showFPS = true,
         });
         //Debugger.Log("Log");

@@ -11,6 +11,7 @@ public class Phase_Start : PhaseBase
         base.Enter();
 
         controller.round++;
+        controller.roundStart?.Invoke();
 
         stateMachine.SwitchState(typeof(Phase_Draw));
     }

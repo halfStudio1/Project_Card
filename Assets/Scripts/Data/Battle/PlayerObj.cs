@@ -24,6 +24,8 @@ public class PlayerObj
     public UnityAction<AttackObj> onHurt;
     public UnityAction onDeath;
 
+    public UnityAction<CardObj> onGetCurse;
+
 
     public void Attack(AttackObj attackObj)
     {
@@ -46,7 +48,22 @@ public class PlayerObj
         buffObj.OnRemove(this);
     }
 
+    /// <summary>
+    /// 被塞诅咒牌
+    /// </summary>
+    /// <param name="cardObj"></param>
+    public void GetCurse(CardObj cardObj)
+    {
+        onGetCurse?.Invoke(cardObj);
 
+        if (cardObj.cardType == cfg.E_CardType.None)
+            return;
+        else
+        {
+            int randomIndex = Random.Range(0, deck.Count);
+            deck.Insert(randomIndex, cardObj.id);
+        }
+    }
 
     #region 行动：洗牌、摸牌、出牌等
 

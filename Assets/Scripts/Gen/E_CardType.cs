@@ -13,6 +13,7 @@ namespace cfg
 { 
     public enum E_CardType
     {
+        None = -1,
         /// <summary>
         /// 伤害牌
         /// </summary>
@@ -29,6 +30,9 @@ namespace cfg
         /// 资源牌
         /// </summary>
         Resource = 3,
+        /// <summary>
+        /// 诅咒
+        /// </summary>
         Curse = 4,
     }
 

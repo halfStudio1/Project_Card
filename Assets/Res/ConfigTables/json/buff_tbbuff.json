@@ -25,5 +25,14 @@
     "buffType": 1003,
     "priority": 1,
     "maxStack": 20
+  },
+  {
+    "id": 1004,
+    "name": "跳过行动",
+    "imgName": "",
+    "info": "跳过行动",
+    "buffType": 1004,
+    "priority": 1,
+    "maxStack": 20
   }
 ]

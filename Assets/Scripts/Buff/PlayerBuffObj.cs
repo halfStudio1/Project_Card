@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,10 @@ public class PlayerBuffObj
         playerObj.playerBuffObjs.Remove(this);
     }
 }
+
+/// <summary>
+/// 穿透
+/// </summary>
 public class Penetrate : PlayerBuffObj
 {
     public PlayerObj playerObj;
@@ -48,6 +53,9 @@ public class Penetrate : PlayerBuffObj
     }
 }
 
+/// <summary>
+/// 护盾
+/// </summary>
 public class Shield : PlayerBuffObj
 {
 
@@ -64,5 +72,37 @@ public class Shield : PlayerBuffObj
 
     public void ShieldDamage(AttackObj attackObj)
     {
+    }
+}
+
+public class Mask : PlayerBuffObj
+{
+    public int defenseTime = 1;
+    public override void OnAdd(PlayerObj playerObj)
+    {
+        base.OnAdd(playerObj);
+        playerObj.onGetCurse += DefenseCurse;
+        BattleController.Instance.roundStart += ResetDefenseTime;
+    }
+
+    private void ResetDefenseTime()
+    {
+        defenseTime = 1;
+    }
+
+    public override void OnRemove(PlayerObj playerObj)
+    {
+        playerObj.onGetCurse -= DefenseCurse;
+        BattleController.Instance.roundStart -= ResetDefenseTime;
+        base.OnRemove(playerObj);
+    }
+
+    public void DefenseCurse(CardObj cardObj)
+    {
+        if(defenseTime > 0)
+        {
+            defenseTime--;
+            cardObj.cardType = cfg.E_CardType.None;
+        }
     }
 }

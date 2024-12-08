@@ -80,3 +80,66 @@ public class Trauma : BuffObj
         }
     }
 }
+
+/// <summary>
+/// 乐不思蜀
+/// </summary>
+public class SkipAction : BuffObj
+{
+    public SkipAction()
+    {
+        buff = BuffMgr.Instance.GetBuff(cfg.E_BuffType.SkipAction);
+    }
+
+    public override void OnAddStack(int stack)
+    {
+        base.OnAddStack(stack);
+    }
+
+    public override void OnAdd(EnemyObj enemyObj)
+    {
+        base.OnAdd(enemyObj);
+    }
+
+    public override void OnRemove(EnemyObj enemyObj)
+    {
+        base.OnRemove(enemyObj);
+    }
+}
+
+public class Poison : BuffObj
+{
+    public Poison()
+    {
+        buff = BuffMgr.Instance.GetBuff(cfg.E_BuffType.Poison);
+    }
+
+    public override void OnAddStack(int stack)
+    {
+        base.OnAddStack(stack);
+        Debugger.LogRed($"当前中毒层数{this.stack}");
+    }
+
+    public override void OnAdd(EnemyObj enemyObj)
+    {
+        base.OnAdd(enemyObj);
+        enemyObj.onActionEnd += PoisonDamage;
+        Debugger.LogRed($"施加中毒Buff，当前中毒层数{stack}");
+    }
+    public override void OnRemove(EnemyObj enemyObj)
+    {
+        enemyObj.onActionEnd -= PoisonDamage;
+        base.OnRemove(enemyObj);
+    }
+    private void PoisonDamage(EnemyObj enemyObj)
+    {
+        enemyObj.Hurt(stack);
+        stack--;
+        Debugger.LogRed($"触发中毒Buff，造成伤害{stack + 1}，剩余层数{stack}");
+        if (stack <= 0)
+        {
+            enemyObj.RemoveBuff(this);
+            Debugger.LogPink("中毒层数用完了");
+        }
+    }
+}

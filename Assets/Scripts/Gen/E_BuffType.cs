@@ -25,6 +25,14 @@ namespace cfg
         /// 创伤
         /// </summary>
         Trauma = 1003,
+        /// <summary>
+        /// 跳过行动
+        /// </summary>
+        SkipAction = 1004,
+        /// <summary>
+        /// 中毒
+        /// </summary>
+        Poison = 1005,
     }
 
 } 

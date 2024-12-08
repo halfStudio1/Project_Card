@@ -40,7 +40,10 @@ public class MaskEffect : ICardEffect
 {
     public bool ExecuteEffect(CardObj cardObj, PlayerObj user, EnemyObj target)
     {
-        return false;
+        Mask maskBuff = new Mask();
+
+        user.AddBuff(maskBuff);
+        return true;
     }
 }
 
@@ -61,9 +64,11 @@ public class ScissorsEffect : ICardEffect
 public class EyesEffect : ICardEffect
 {
     //查看牌库的3张牌，以任意顺序置于牌库顶
+    //观今夜之天象，知天下之大事
     public bool ExecuteEffect(CardObj cardObj, PlayerObj user, EnemyObj target)
     {
-        return false;
+        Debugger.LogMagenta("观今夜之天象，知天下之大事");
+        return true;
     }
 }
 
@@ -89,7 +94,8 @@ public class AppleEffect : ICardEffect
 {
     public bool ExecuteEffect(CardObj cardObj, PlayerObj user, EnemyObj target)
     {
-        return false;
+        Debugger.LogPink("乐不思蜀");
+        return true;
     }
 }
 
@@ -103,12 +109,23 @@ public class WolfToothEffect : ICardEffect
         return true;
     }
 }
+public class ScrollEffect : ICardEffect
+{
+    public bool ExecuteEffect(CardObj cardObj, PlayerObj user, EnemyObj target)
+    {
+        BattleController.Instance.DrawCard();
+        Debugger.LogMagenta("使用了卷轴");
+        return true;
+    }
+}
 
 public class GobletEffect : ICardEffect
 {
     public bool ExecuteEffect(CardObj cardObj, PlayerObj user, EnemyObj target)
     {
-        return false;
+        //Shield shield = new Shield();
+        Debugger.LogMagenta("获得了护盾");
+        return true;
     }
 }
 
@@ -116,7 +133,11 @@ public class PoisonEffect : ICardEffect
 {
     public bool ExecuteEffect(CardObj cardObj, PlayerObj user, EnemyObj target)
     {
-        return false;
+        Poison poison = new Poison();
+        poison.stack = cardObj.value;
+        BuffMgr.Instance.GiveBuff(poison, target);
+        Debugger.LogPink("施加了中毒buff");
+        return true;
     }
 }
 
@@ -132,16 +153,15 @@ public class RivetEffect : ICardEffect
 {
     public bool ExecuteEffect(CardObj cardObj, PlayerObj user, EnemyObj target)
     {
-        return false;
-    }
-}
+        AttackObj attackObj = new AttackObj();
+        attackObj.damage = cardObj.value;
+        attackObj.attackType = E_AttackType.Normal;
+        attackObj.enemyObj = target;
+        attackObj.attackTime = 3;
 
-public class ScrollEffect : ICardEffect
-{
-    public bool ExecuteEffect(CardObj cardObj, PlayerObj user, EnemyObj target)
-    {
-        BattleController.Instance.DrawCard();
-        Debugger.LogMagenta("使用了卷轴");
+        user.Attack(attackObj);
         return true;
     }
 }
+
+

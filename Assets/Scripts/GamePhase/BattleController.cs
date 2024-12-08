@@ -14,6 +14,8 @@ public class BattleController : SingletonMono<BattleController>
 
     //回合数
     public int round = 0;
+    //一个回合的开始
+    public UnityAction roundStart;
 
     //下一个阶段
     public UnityAction nextPhaseAction;

@@ -113,31 +113,31 @@
     "id": 10012,
     "name": "长矛",
     "imgName": "Attack",
-    "info": "将下1张卡牌造成的伤害转化为穿透伤害",
+    "info": "立即获得1层“穿透”",
     "cardType": 1,
     "cardFace": 5,
     "point": 5,
-    "value": 0
+    "value": 1
   },
   {
     "id": 10013,
     "name": "长矛",
     "imgName": "Attack",
-    "info": "将下1张卡牌造成的伤害转化为穿透伤害，伤害+3",
+    "info": "立即获得2层“穿透”",
     "cardType": 1,
     "cardFace": 5,
     "point": 6,
-    "value": 3
+    "value": 2
   },
   {
     "id": 10014,
     "name": "长矛",
     "imgName": "Attack",
-    "info": "将下1张卡牌造成的伤害转化为穿透伤害，伤害+5",
+    "info": "立即获得3层“穿透”",
     "cardType": 1,
     "cardFace": 5,
     "point": 7,
-    "value": 5
+    "value": 3
   },
   {
     "id": 10015,
